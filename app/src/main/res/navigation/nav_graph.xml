@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/coffeeList">
+
+    <!-- Coffee List -->
+    <fragment
+        android:id="@+id/coffeeList"
+        android:name="com.example.lab_week_04.ListFragment"
+        android:label="Coffee List"
+        tools:layout="@layout/fragment_list">
+
+        <!-- Arah ke detail -->
+        <action
+            android:id="@+id/action_coffeeList_to_coffeeDetail"
+            app:destination="@id/coffeeDetail" />
+
+        <!-- Arah ke favorite -->
+        <action
+            android:id="@+id/action_coffeeList_to_favoriteFragment"
+            app:destination="@id/favoritesFragment" />
+    </fragment>
+
+    <!-- Coffee Detail -->
+    <fragment
+        android:id="@+id/coffeeDetail"
+        android:name="com.example.lab_week_04.DetailFragment"
+        android:label="Coffee Detail"
+        tools:layout="@layout/fragment_detail" />
+
+    <!-- Favorite -->
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.lab_week_04.FavoriteFragment"
+        android:label="My Favorite Coffee"
+        tools:layout="@layout/fragment_favorite" />
+</navigation>
