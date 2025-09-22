@@ -23,10 +23,9 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        // Sesuaikan id dengan nav_graph
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.coffeeList, R.id.favoritesFragment, R.id.cafeFragment
+                R.id.coffeeList, R.id.favoritesFragment, R.id.cafeFragment2
             ), findViewById(R.id.drawer_layout)
         )
 

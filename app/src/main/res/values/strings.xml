@@ -43,4 +43,6 @@
     <string name="kopikenangan_title">KOPI KENANGAN</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="cafe_tabs_description">Cafe Tabs</string>
+
 </resources>
