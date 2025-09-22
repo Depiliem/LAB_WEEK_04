@@ -8,38 +8,39 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.ui.navigateUp
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setSupportActionBar(findViewById(R.id.toolbar))
 
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-                    as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
+        // Sesuaikan id dengan nav_graph
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.coffeeList,
-                R.id.favoritesFragment
-            ),
-            findViewById(R.id.drawer_layout)
+                R.id.coffeeList, R.id.favoritesFragment, R.id.cafeFragment
+            ), findViewById(R.id.drawer_layout)
         )
 
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         findViewById<NavigationView>(R.id.nav_view)
             ?.setupWithNavController(navController)
+
+        findViewById<BottomNavigationView>(R.id.bottom_nav)
+            ?.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
-        return androidx.navigation.ui.NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp()
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
